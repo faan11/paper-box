@@ -1,0 +1,27 @@
+{
+  "name": "paper-box",
+  "version": "1.0.0",
+  "description": "A Material Design box (Polymer 1.x)",
+  "authors": [
+    "Faan11"
+  ],
+  "main": "paper-box.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.4.0",
+    "paper-card": "PolymerElements/paper-card#^2.0.0",
+    "iron-icon": "PolymerElements/iron-icon#^2.0.0",
+    "paper-toolbar": "PolymerElements/paper-toolbar#^2.0.0",
+    "iron-flex-layout": "PolymerElements/iron-flex-layout#^2.0.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+    "web-component-tester": "^4.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0"
+  },
+  "resolutions": {
+    "iron-icon": "^1.0.0",
+    "paper-toolbar": "^1.0.0",
+    "iron-flex-layout": "^1.0.0"
+  }
+}
