@@ -21,6 +21,7 @@
         display: block;
         --paper-toolbar-height: 70px;
         --paper-toolbar-sm-height: 60px;
+        --paper-box-image:"";
 
       };
       paper-card{
@@ -38,6 +39,11 @@
       }
       #imageBox{
         background-size:cover;
+
+
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color:white;
       }
       .pa-center {
         margin-bottom: 0px;
@@ -111,9 +117,13 @@
       this._iconclass = "hidden";
     },
     changeBackground:function(image){
-      $(this.$.imageBox).css("background","url("+image+") no-repeat center center");
-      $(this.$.imageBox).css("background-color","white");
-    }
+      this.hideIcon();
+      this.$.imageBox.style.backgroundImage="url("+image+")";
+    },
+    clearBackgroundImage:function(image){
+      this.showIcon();
+      this.$.imageBox.style.backgroundImage="";
+    },
 
   });
 </script>
