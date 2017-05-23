@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <!--
 ### paper-box
@@ -54,6 +53,12 @@
         text-align: center;
         background-color: var(--paper-box-color, green);
       }
+      .visible{
+        visibility:visible;
+      }
+      .hidden{
+        visibility:hidden;
+      }
     </style>
 
     <paper-card>
@@ -61,14 +66,14 @@
       <div id="imageBox" class="card-content add_margin pa-content" >
 
         <div class="horizontal  layout center-justified pa-center">
-          <iron-icon id="iconbox"  src="{{src}}"></<iron-icon>
+          <iron-icon id="iconbox" class$="{{_iconclass}}"  src="{{src}}"></<iron-icon>
         </div>
 
 
       </div>
       <div>
         <div class="toolbox" >
-          <h3>{{text}}</h3>
+          <h4>{{text}}</h4>
         </div>
       </div>
     </paper-card>
@@ -80,11 +85,6 @@
 
     is: 'paper-box',
 
-    /**
-     * Fired when the user clicks on a place in the Google Map place list.
-     *
-     * @event place-clicked
-     */
 
     properties: {
       text:{
@@ -96,10 +96,24 @@
         type:String,
         value:"",
         notify:true
+      },
+      _iconclass:{
+        type:String,
+        value:"visible",
+        notify:true
       }
     },
 
-
+    showIcon:function(){
+      this._iconclass = "visible";
+    },
+    hideIcon:function(){
+      this._iconclass = "hidden";
+    },
+    changeBackground:function(image){
+      $(this.$.imageBox).css("background","url("+image+") no-repeat center center");
+      $(this.$.imageBox).css("background-color","white");
+    }
 
   });
 </script>
