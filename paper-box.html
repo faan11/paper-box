@@ -49,8 +49,10 @@
         color: var(--paper-box-color);
       }
       .toolbox {
-        padding: 20px;
-        background-color: var(--paper-box-color);
+        display:block;
+        padding: 11px;
+        text-align: center;
+        background-color: var(--paper-box-color, green);
       }
     </style>
 
@@ -65,13 +67,9 @@
 
       </div>
       <div>
-        <paper-toolbar class="toolbox" middle-justify="justified">
-          <div class="middle"> </div>
-          <div class="middle ">
-            <h3>{{text}}</h3></div>
-          <div class="middle"></div>
-
-        </paper-toolbar>
+        <div class="toolbox" >
+          <h3>{{text}}</h3>
+        </div>
       </div>
     </paper-card>
 
