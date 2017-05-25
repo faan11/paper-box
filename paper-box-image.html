@@ -26,9 +26,11 @@
       :host {}
 
       paper-box {
-        --paper-box-color: green;
-        --paper-box-icon-width: 60px;
-        --paper-box-icon-height: 60px;
+        --paper-box-color: var(--paper-box-image-color);
+        --paper-box-text-color: var(--paper-box-image-text-color);
+        --paper-dropzone-dialog-color: var(--paper-box-image-dropzone-color);
+        --paper-dropzone-dialog-text-color: var(--paper-box-image-dropzone-text-color);
+
       }
     </style>
 
@@ -62,12 +64,7 @@
     </paper-cropper-dialog>
     <iron-image-metadata id="metadataImage" src="{{imageMD}}" width="{{imageW}}" height="{{imageH}}" on-load="imageMetadataLoad">
     </iron-image-metadata>
-
-    <form id="formProfileImage" accept-charset="utf-8" enctype="multipart/form-data" style="display:none;visible:invisible;" method="POST" action="http://localhost:8081/upload/upload_image">
-      <input type="file" name="file" id="file">
-
-    </form>
-
+    
     <paper-box id="paperBox" text="{{paperText}}" src="images/add_blue.svg" on-click="paperClick"></paper-box>
 
   </template>
@@ -249,7 +246,7 @@
         this.$.paperBox.changeBackground(this.croppedImage);
       },
       ExitNewImage: function() {
-        
+
         /**
         No for modification reason.
         this.tempSelectedImage = null;
