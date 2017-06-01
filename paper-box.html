@@ -48,7 +48,7 @@
       #iconbox{
         width:  60px;
         height: 46px;
-        background-color: var(--paper-box-icon-color);
+        color: var(--paper-box-icon-color);
 
       }
       #iconbox svg {
@@ -85,7 +85,7 @@
       <div id="imageBox" class="card-content add_margin pa-content" >
 
         <div class="horizontal  layout center-justified pa-center">
-          <iron-icon id="iconbox" class$="{{_iconclass}}"  src="{{src}}"></<iron-icon>
+          <iron-icon id="iconbox" class$="{{_iconclass}}"  icon="{{icon}}" src="{{src}}"></<iron-icon>
         </div>
 
 
@@ -108,6 +108,11 @@
     properties: {
       text:{
         type: String,
+        value:"",
+        notify:true
+      },
+      icon:{
+        type:String,
         value:"",
         notify:true
       },
