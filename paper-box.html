@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-media-query/iron-media-query.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout-classes.html">
 <!--
 ### paper-box
@@ -33,7 +34,7 @@
           margin: 5px;
       }
       .pa-content {
-        padding: 0px;
+        padding: 13px;
         padding-top: 4px;
       }
       #imageBox{
@@ -57,7 +58,7 @@
       .toolbox {
         display:block;
         padding: 11px;
-	padding-left:8px;
+	      padding-left:8px;
         text-align: center;
         background-color: var(--paper-box-color, green);
       }
@@ -67,7 +68,7 @@
       .hidden{
         visibility:hidden;
       }
-      h4{
+      h3{
         color: var(--paper-box-text-color, black);
         font-size: 16px;
         padding-left:0px;
@@ -78,9 +79,17 @@
       paper-card{
         width: var(--paper-box-width, auto);
       }
+      @media only screen and (max-width: 768px) {
+        paper-card{
+          width: var(--paper-box-width-mobile, auto);
+        }
+      }
+
+
     </style>
 
     <paper-card>
+      <iron-media-query query="(max-width: 768px)" query-matches="{{_mobile}}"></iron-media-query>
 
       <div id="imageBox" class="card-content add_margin pa-content" >
 
@@ -92,7 +101,7 @@
       </div>
       <div>
         <div class="toolbox" >
-          <h4>{{text}}</h4>
+          <h3>{{text}}</h3>
         </div>
       </div>
     </paper-card>
@@ -106,6 +115,12 @@
 
 
     properties: {
+      _mobile:{
+        type: Boolean,
+        value:false,
+        notify:true,
+        observer: "_onMobileView"
+      },
       text:{
         type: String,
         value:"",
@@ -127,7 +142,11 @@
         notify:true
       }
     },
-
+    _onMobileView:function(newValue,oldValue){
+      //if (newValue == true){
+      this.updateStyles();
+      //}
+    },
     showIcon:function(){
       this._iconclass = "visible";
     },
